@@ -1,0 +1,52 @@
+#
+# Configuration file for the Xen instance debianvm, created
+# by xen-tools 4.9.2 on Sat Jul 26 00:44:50 2025.
+#
+
+#
+#  Kernel + memory size
+#
+
+
+bootloader = 'pygrub'
+
+vcpus       = '1'
+memory      = '2048'
+
+
+#
+#  Disk device(s).
+#
+root        = '/dev/xvda2 ro'
+disk        = [
+                  'file:/srv/xen/domains/debianvm/disk.img,xvda2,w',
+                  'file:/srv/xen/domains/debianvm/swap.img,xvda1,w',
+              ]
+
+
+#
+#  Physical volumes
+#
+
+
+#
+#  Hostname
+#
+name        = 'debianvm'
+
+#
+#  Networking
+#
+dhcp        = 'dhcp'
+#vif         = [ 'mac=00:16:3E:CB:CF:00' ]
+vif	    = [ 'script=vif-nat' ]
+
+#
+#  Behaviour
+#
+on_poweroff = 'destroy'
+on_reboot   = 'restart'
+on_crash    = 'restart'
+
+
+

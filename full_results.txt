@@ -1,0 +1,375 @@
+Starte Benchmark mit festen Methoden (5 Durchläufe pro Test, Dauer je Test: 60s)
+Ergebnisse werden in benchmarks_debianfull_20250727_184127/results.txt gespeichert
+----------------------------------------
+=== Run 1/5: CPU-Test (cpu-method: default) ===
+stress-ng: info:  [2638] setting to a 60 second run per stressor
+stress-ng: info:  [2638] dispatching hogs: 1 cpu
+stress-ng: metrc: [2638] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+stress-ng: metrc: [2638]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: metrc: [2638] cpu               99826     60.00     59.35      0.01      1663.66        1681.74
+stress-ng: info:  [2638] successful run completed in 60.02s (1 min, 0.02 secs)
+
+=== Run 1/5: RAM-Test (vm-method: write64) ===
+stress-ng: info:  [2652] setting to a 60 second run per stressor
+stress-ng: info:  [2652] dispatching hogs: 1 vm
+stress-ng: metrc: [2652] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+stress-ng: metrc: [2652]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: metrc: [2652] vm                15647     60.05     11.59     48.06       260.55         262.29
+stress-ng: info:  [2652] successful run completed in 60.06s (1 min, 0.06 secs)
+
+=== Run 1/5: Disk I/O Test (fio: randrw, 4k blocks) ===
+randrw: (g=0): rw=randrw, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=1
+fio-3.33
+Starting 1 process
+randrw: Laying out IO file (1 file / 512MiB)
+
+randrw: (groupid=0, jobs=1): err= 0: pid=2666: Sun Jul 27 18:44:30 2025
+  read: IOPS=3551, BW=13.9MiB/s (14.5MB/s)(832MiB/60001msec)
+    slat (nsec): min=480, max=53572k, avg=262191.20, stdev=397983.98
+    clat (nsec): min=35, max=4473.8k, avg=1733.84, stdev=14752.01
+     lat (nsec): min=515, max=53574k, avg=263925.05, stdev=398450.97
+    clat percentiles (nsec):
+     |  1.00th=[   860],  5.00th=[   900], 10.00th=[   932], 20.00th=[  1020],
+     | 30.00th=[  1128], 40.00th=[  1256], 50.00th=[  1336], 60.00th=[  1560],
+     | 70.00th=[  1768], 80.00th=[  1848], 90.00th=[  2096], 95.00th=[  2448],
+     | 99.00th=[  8896], 99.50th=[  9536], 99.90th=[ 37120], 99.95th=[ 43776],
+     | 99.99th=[144384]
+   bw (  KiB/s): min= 5992, max=18448, per=100.00%, avg=14306.52, stdev=2806.47, samples=118
+   iops        : min= 1498, max= 4612, avg=3576.62, stdev=701.61, samples=118
+  write: IOPS=3550, BW=13.9MiB/s (14.5MB/s)(832MiB/60001msec); 0 zone resets
+    slat (nsec): min=35, max=16812k, avg=7722.54, stdev=59818.52
+    clat (nsec): min=35, max=7554.3k, avg=1020.70, stdev=20778.73
+     lat (nsec): min=71, max=16814k, avg=8743.24, stdev=63511.47
+    clat percentiles (nsec):
+     |  1.00th=[   564],  5.00th=[   572], 10.00th=[   572], 20.00th=[   572],
+     | 30.00th=[   580], 40.00th=[   588], 50.00th=[   612], 60.00th=[   852],
+     | 70.00th=[  1080], 80.00th=[  1128], 90.00th=[  1176], 95.00th=[  1272],
+     | 99.00th=[  5600], 99.50th=[  8640], 99.90th=[ 10944], 99.95th=[ 36608],
+     | 99.99th=[144384]
+   bw (  KiB/s): min= 6112, max=18392, per=100.00%, avg=14302.24, stdev=2815.29, samples=118
+   iops        : min= 1528, max= 4598, avg=3575.55, stdev=703.82, samples=118
+  lat (nsec)   : 50=0.38%, 750=28.68%, 1000=13.56%
+  lat (usec)   : 2=50.78%, 4=4.55%, 10=1.81%, 20=0.13%, 50=0.08%
+  lat (usec)   : 100=0.01%, 250=0.02%, 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=0.95%, sys=24.02%, ctx=218407, majf=0, minf=15
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=213083,213016,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=13.9MiB/s (14.5MB/s), 13.9MiB/s-13.9MiB/s (14.5MB/s-14.5MB/s), io=832MiB (873MB), run=60001-60001msec
+  WRITE: bw=13.9MiB/s (14.5MB/s), 13.9MiB/s-13.9MiB/s (14.5MB/s-14.5MB/s), io=832MiB (873MB), run=60001-60001msec
+
+Disk stats (read/write):
+  sda: ios=212495/157188, merge=35/77, ticks=47575/24783, in_queue=72437, util=64.29%
+
+=== Run 1/5: Fork-Test (Standard fork) ===
+stress-ng: info:  [2678] setting to a 60 second run per stressor
+stress-ng: info:  [2678] dispatching hogs: 4 fork
+stress-ng: metrc: [2678] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+stress-ng: metrc: [2678]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: metrc: [2678] fork              35159     60.00     29.03     30.60       585.94         589.59
+stress-ng: info:  [2678] successful run completed in 60.02s (1 min, 0.02 secs)
+
+--- Run 1 abgeschlossen ---
+
+=== Run 2/5: CPU-Test (cpu-method: default) ===
+stress-ng: info:  [37846] setting to a 60 second run per stressor
+stress-ng: info:  [37846] dispatching hogs: 1 cpu
+stress-ng: metrc: [37846] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+stress-ng: metrc: [37846]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: metrc: [37846] cpu              100142     60.00     59.85      0.01      1669.01        1672.75
+stress-ng: info:  [37846] successful run completed in 60.00s (1 min, 0.00 secs)
+
+=== Run 2/5: RAM-Test (vm-method: write64) ===
+stress-ng: info:  [37859] setting to a 60 second run per stressor
+stress-ng: info:  [37859] dispatching hogs: 1 vm
+stress-ng: metrc: [37859] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+stress-ng: metrc: [37859]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: metrc: [37859] vm                15105     60.01     11.57     46.90       251.71         258.31
+stress-ng: info:  [37859] successful run completed in 60.01s (1 min, 0.01 secs)
+
+=== Run 2/5: Disk I/O Test (fio: randrw, 4k blocks) ===
+randrw: (g=0): rw=randrw, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=1
+fio-3.33
+Starting 1 process
+
+randrw: (groupid=0, jobs=1): err= 0: pid=37897: Sun Jul 27 18:48:31 2025
+  read: IOPS=3495, BW=13.7MiB/s (14.3MB/s)(819MiB/60001msec)
+    slat (nsec): min=516, max=23277k, avg=264050.20, stdev=316430.87
+    clat (nsec): min=35, max=1670.1k, avg=1811.37, stdev=5502.61
+     lat (nsec): min=551, max=23279k, avg=265861.57, stdev=316576.42
+    clat percentiles (nsec):
+     |  1.00th=[   940],  5.00th=[   980], 10.00th=[  1004], 20.00th=[  1048],
+     | 30.00th=[  1096], 40.00th=[  1240], 50.00th=[  1448], 60.00th=[  1864],
+     | 70.00th=[  1960], 80.00th=[  2024], 90.00th=[  2256], 95.00th=[  2512],
+     | 99.00th=[  9408], 99.50th=[  9920], 99.90th=[ 34560], 99.95th=[ 43776],
+     | 99.99th=[138240]
+   bw (  KiB/s): min= 1016, max=17960, per=100.00%, avg=14113.67, stdev=2853.03, samples=118
+   iops        : min=  254, max= 4490, avg=3528.41, stdev=713.27, samples=118
+  write: IOPS=3493, BW=13.6MiB/s (14.3MB/s)(819MiB/60001msec); 0 zone resets
+    slat (nsec): min=35, max=21900k, avg=8208.55, stdev=82677.48
+    clat (nsec): min=35, max=13075k, avg=1171.19, stdev=35457.71
+     lat (nsec): min=71, max=22172k, avg=9379.74, stdev=95158.35
+    clat percentiles (nsec):
+     |  1.00th=[   564],  5.00th=[   564], 10.00th=[   572], 20.00th=[   580],
+     | 30.00th=[   580], 40.00th=[   604], 50.00th=[   740], 60.00th=[  1064],
+     | 70.00th=[  1096], 80.00th=[  1128], 90.00th=[  1160], 95.00th=[  1224],
+     | 99.00th=[  6816], 99.50th=[  9152], 99.90th=[ 10560], 99.95th=[ 36096],
+     | 99.99th=[171008]
+   bw (  KiB/s): min= 1000, max=18520, per=100.00%, avg=14108.53, stdev=2876.32, samples=118
+   iops        : min=  250, max= 4630, avg=3527.13, stdev=719.09, samples=118
+  lat (nsec)   : 50=0.55%, 500=0.01%, 750=24.72%, 1000=7.87%
+  lat (usec)   : 2=54.02%, 4=10.54%, 10=2.03%, 20=0.16%, 50=0.06%
+  lat (usec)   : 100=0.01%, 250=0.02%, 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=1.18%, sys=24.66%, ctx=215551, majf=0, minf=14
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=209714,209621,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=13.7MiB/s (14.3MB/s), 13.7MiB/s-13.7MiB/s (14.3MB/s-14.3MB/s), io=819MiB (859MB), run=60001-60001msec
+  WRITE: bw=13.6MiB/s (14.3MB/s), 13.6MiB/s-13.6MiB/s (14.3MB/s-14.3MB/s), io=819MiB (859MB), run=60001-60001msec
+
+Disk stats (read/write):
+  sda: ios=209427/141969, merge=0/26, ticks=46402/22617, in_queue=69071, util=63.72%
+
+=== Run 2/5: Fork-Test (Standard fork) ===
+stress-ng: info:  [37900] setting to a 60 second run per stressor
+stress-ng: info:  [37900] dispatching hogs: 4 fork
+stress-ng: metrc: [37900] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+stress-ng: metrc: [37900]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: metrc: [37900] fork              34797     60.01     28.57     30.75       579.90         586.51
+stress-ng: info:  [37900] successful run completed in 60.02s (1 min, 0.02 secs)
+
+--- Run 2 abgeschlossen ---
+
+=== Run 3/5: CPU-Test (cpu-method: default) ===
+stress-ng: info:  [72707] setting to a 60 second run per stressor
+stress-ng: info:  [72707] dispatching hogs: 1 cpu
+stress-ng: metrc: [72707] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+stress-ng: metrc: [72707]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: metrc: [72707] cpu              100132     60.00     59.86      0.00      1668.86        1672.54
+stress-ng: info:  [72707] successful run completed in 60.00s (1 min, 0.00 secs)
+
+=== Run 3/5: RAM-Test (vm-method: write64) ===
+stress-ng: info:  [72711] setting to a 60 second run per stressor
+stress-ng: info:  [72711] dispatching hogs: 1 vm
+stress-ng: metrc: [72711] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+stress-ng: metrc: [72711]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: metrc: [72711] vm                15610     60.27     10.89     48.49       259.01         262.89
+stress-ng: info:  [72711] successful run completed in 60.27s (1 min, 0.27 secs)
+
+=== Run 3/5: Disk I/O Test (fio: randrw, 4k blocks) ===
+randrw: (g=0): rw=randrw, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=1
+fio-3.33
+Starting 1 process
+
+randrw: (groupid=0, jobs=1): err= 0: pid=72728: Sun Jul 27 18:52:32 2025
+  read: IOPS=3529, BW=13.8MiB/s (14.5MB/s)(827MiB/60006msec)
+    slat (nsec): min=516, max=17088k, avg=261129.82, stdev=310380.98
+    clat (nsec): min=35, max=4343.2k, avg=1734.70, stdev=14918.55
+     lat (nsec): min=551, max=17090k, avg=262864.52, stdev=310823.21
+    clat percentiles (nsec):
+     |  1.00th=[   892],  5.00th=[   932], 10.00th=[   948], 20.00th=[   988],
+     | 30.00th=[  1048], 40.00th=[  1128], 50.00th=[  1304], 60.00th=[  1768],
+     | 70.00th=[  1848], 80.00th=[  1928], 90.00th=[  2024], 95.00th=[  2288],
+     | 99.00th=[  9152], 99.50th=[  9536], 99.90th=[ 35584], 99.95th=[ 42240],
+     | 99.99th=[144384]
+   bw (  KiB/s): min= 7208, max=18400, per=100.00%, avg=14387.42, stdev=2615.51, samples=117
+   iops        : min= 1802, max= 4600, avg=3596.84, stdev=653.87, samples=117
+  write: IOPS=3529, BW=13.8MiB/s (14.5MB/s)(827MiB/60006msec); 0 zone resets
+    slat (nsec): min=35, max=19628k, avg=8115.06, stdev=62387.10
+    clat (nsec): min=27, max=18760k, avg=1060.46, stdev=40837.10
+     lat (nsec): min=71, max=19630k, avg=9175.53, stdev=74899.19
+    clat percentiles (nsec):
+     |  1.00th=[   564],  5.00th=[   564], 10.00th=[   572], 20.00th=[   572],
+     | 30.00th=[   580], 40.00th=[   588], 50.00th=[   652], 60.00th=[  1064],
+     | 70.00th=[  1096], 80.00th=[  1128], 90.00th=[  1176], 95.00th=[  1256],
+     | 99.00th=[  5664], 99.50th=[  9024], 99.90th=[ 17280], 99.95th=[ 36096],
+     | 99.99th=[144384]
+   bw (  KiB/s): min= 6360, max=18952, per=100.00%, avg=14380.74, stdev=2682.03, samples=117
+   iops        : min= 1590, max= 4738, avg=3595.17, stdev=670.52, samples=117
+  lat (nsec)   : 50=0.49%, 500=0.01%, 750=26.59%, 1000=12.63%
+  lat (usec)   : 2=53.52%, 4=4.64%, 10=1.96%, 20=0.06%, 50=0.08%
+  lat (usec)   : 100=0.01%, 250=0.02%, 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=1.06%, sys=24.67%, ctx=217953, majf=0, minf=14
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=211809,211793,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=13.8MiB/s (14.5MB/s), 13.8MiB/s-13.8MiB/s (14.5MB/s-14.5MB/s), io=827MiB (868MB), run=60006-60006msec
+  WRITE: bw=13.8MiB/s (14.5MB/s), 13.8MiB/s-13.8MiB/s (14.5MB/s-14.5MB/s), io=827MiB (868MB), run=60006-60006msec
+
+Disk stats (read/write):
+  sda: ios=211638/143503, merge=0/28, ticks=46286/23778, in_queue=70130, util=63.41%
+
+=== Run 3/5: Fork-Test (Standard fork) ===
+stress-ng: info:  [72731] setting to a 60 second run per stressor
+stress-ng: info:  [72731] dispatching hogs: 4 fork
+stress-ng: metrc: [72731] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+stress-ng: metrc: [72731]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: metrc: [72731] fork              34987     59.97     28.94     30.69       583.45         586.68
+stress-ng: info:  [72731] successful run completed in 60.07s (1 min, 0.07 secs)
+
+--- Run 3 abgeschlossen ---
+
+=== Run 4/5: CPU-Test (cpu-method: default) ===
+stress-ng: info:  [107728] setting to a 60 second run per stressor
+stress-ng: info:  [107728] dispatching hogs: 1 cpu
+stress-ng: metrc: [107728] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+stress-ng: metrc: [107728]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: metrc: [107728] cpu              100174     60.00     59.90      0.01      1669.66        1672.12
+stress-ng: info:  [107728] successful run completed in 60.01s (1 min, 0.01 secs)
+
+=== Run 4/5: RAM-Test (vm-method: write64) ===
+stress-ng: info:  [107733] setting to a 60 second run per stressor
+stress-ng: info:  [107733] dispatching hogs: 1 vm
+stress-ng: metrc: [107733] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+stress-ng: metrc: [107733]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: metrc: [107733] vm                15338     60.01     11.64     48.10       255.60         256.77
+stress-ng: info:  [107733] successful run completed in 60.01s (1 min, 0.01 secs)
+
+=== Run 4/5: Disk I/O Test (fio: randrw, 4k blocks) ===
+randrw: (g=0): rw=randrw, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=1
+fio-3.33
+Starting 1 process
+
+randrw: (groupid=0, jobs=1): err= 0: pid=107741: Sun Jul 27 18:56:33 2025
+  read: IOPS=3413, BW=13.3MiB/s (14.0MB/s)(800MiB/60004msec)
+    slat (nsec): min=515, max=19181k, avg=270577.41, stdev=325680.37
+    clat (nsec): min=35, max=6104.7k, avg=1919.27, stdev=20613.11
+     lat (nsec): min=551, max=19381k, avg=272496.68, stdev=326825.55
+    clat percentiles (nsec):
+     |  1.00th=[   852],  5.00th=[   892], 10.00th=[   908], 20.00th=[   964],
+     | 30.00th=[  1080], 40.00th=[  1272], 50.00th=[  1688], 60.00th=[  1768],
+     | 70.00th=[  1848], 80.00th=[  2096], 90.00th=[  2416], 95.00th=[  2640],
+     | 99.00th=[  9536], 99.50th=[ 10560], 99.90th=[ 40192], 99.95th=[ 54528],
+     | 99.99th=[144384]
+   bw (  KiB/s): min= 7096, max=18776, per=100.00%, avg=13905.99, stdev=2536.21, samples=117
+   iops        : min= 1774, max= 4694, avg=3476.49, stdev=634.06, samples=117
+  write: IOPS=3411, BW=13.3MiB/s (14.0MB/s)(800MiB/60004msec); 0 zone resets
+    slat (nsec): min=35, max=17888k, avg=8341.81, stdev=74198.46
+    clat (nsec): min=35, max=13213k, avg=1147.75, stdev=32563.06
+     lat (nsec): min=71, max=17890k, avg=9489.56, stdev=81333.08
+    clat percentiles (nsec):
+     |  1.00th=[   564],  5.00th=[   572], 10.00th=[   572], 20.00th=[   580],
+     | 30.00th=[   588], 40.00th=[   612], 50.00th=[  1064], 60.00th=[  1096],
+     | 70.00th=[  1112], 80.00th=[  1144], 90.00th=[  1208], 95.00th=[  1288],
+     | 99.00th=[  8256], 99.50th=[  9280], 99.90th=[ 10944], 99.95th=[ 35584],
+     | 99.99th=[136192]
+   bw (  KiB/s): min= 6808, max=18992, per=100.00%, avg=13904.84, stdev=2544.76, samples=117
+   iops        : min= 1702, max= 4748, avg=3476.19, stdev=636.19, samples=117
+  lat (nsec)   : 50=0.67%, 500=0.01%, 750=22.06%, 1000=14.21%
+  lat (usec)   : 2=50.95%, 4=9.86%, 10=1.81%, 20=0.31%, 50=0.09%
+  lat (usec)   : 100=0.02%, 250=0.02%, 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=1.32%, sys=25.21%, ctx=210635, majf=0, minf=15
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=204798,204732,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=13.3MiB/s (14.0MB/s), 13.3MiB/s-13.3MiB/s (14.0MB/s-14.0MB/s), io=800MiB (839MB), run=60004-60004msec
+  WRITE: bw=13.3MiB/s (14.0MB/s), 13.3MiB/s-13.3MiB/s (14.0MB/s-14.0MB/s), io=800MiB (839MB), run=60004-60004msec
+
+Disk stats (read/write):
+  sda: ios=204513/143433, merge=0/17, ticks=46017/23219, in_queue=69305, util=62.38%
+
+=== Run 4/5: Fork-Test (Standard fork) ===
+stress-ng: info:  [107746] setting to a 60 second run per stressor
+stress-ng: info:  [107746] dispatching hogs: 4 fork
+stress-ng: metrc: [107746] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+stress-ng: metrc: [107746]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: metrc: [107746] fork              35369     60.00     28.87     30.60       589.46         594.66
+stress-ng: info:  [107746] successful run completed in 60.02s (1 min, 0.02 secs)
+
+--- Run 4 abgeschlossen ---
+
+=== Run 5/5: CPU-Test (cpu-method: default) ===
+stress-ng: info:  [143126] setting to a 60 second run per stressor
+stress-ng: info:  [143126] dispatching hogs: 1 cpu
+stress-ng: metrc: [143126] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+stress-ng: metrc: [143126]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: metrc: [143126] cpu              100142     60.00     59.92      0.00      1668.93        1671.29
+stress-ng: info:  [143126] successful run completed in 60.01s (1 min, 0.01 secs)
+
+=== Run 5/5: RAM-Test (vm-method: write64) ===
+stress-ng: info:  [143130] setting to a 60 second run per stressor
+stress-ng: info:  [143130] dispatching hogs: 1 vm
+stress-ng: metrc: [143130] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+stress-ng: metrc: [143130]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: metrc: [143130] vm                15518     60.02     11.48     47.97       258.57         261.06
+stress-ng: info:  [143130] successful run completed in 60.03s (1 min, 0.03 secs)
+
+=== Run 5/5: Disk I/O Test (fio: randrw, 4k blocks) ===
+randrw: (g=0): rw=randrw, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=1
+fio-3.33
+Starting 1 process
+
+randrw: (groupid=0, jobs=1): err= 0: pid=143139: Sun Jul 27 19:00:33 2025
+  read: IOPS=3456, BW=13.5MiB/s (14.2MB/s)(810MiB/60001msec)
+    slat (nsec): min=515, max=18156k, avg=263934.21, stdev=295281.41
+    clat (nsec): min=35, max=4575.3k, avg=1833.82, stdev=13581.71
+     lat (nsec): min=551, max=18156k, avg=265768.04, stdev=295692.71
+    clat percentiles (nsec):
+     |  1.00th=[   884],  5.00th=[   932], 10.00th=[   948], 20.00th=[  1012],
+     | 30.00th=[  1112], 40.00th=[  1224], 50.00th=[  1448], 60.00th=[  1784],
+     | 70.00th=[  1880], 80.00th=[  2008], 90.00th=[  2320], 95.00th=[  2640],
+     | 99.00th=[  9408], 99.50th=[ 10176], 99.90th=[ 38144], 99.95th=[ 48384],
+     | 99.99th=[138240]
+   bw (  KiB/s): min=  144, max=18744, per=100.00%, avg=14065.85, stdev=2979.33, samples=117
+   iops        : min=   36, max= 4686, avg=3516.45, stdev=744.83, samples=117
+  write: IOPS=3454, BW=13.5MiB/s (14.1MB/s)(810MiB/60001msec); 0 zone resets
+    slat (nsec): min=35, max=18131k, avg=8060.63, stdev=63231.24
+    clat (nsec): min=35, max=14000k, avg=1163.15, stdev=35611.35
+     lat (nsec): min=71, max=18134k, avg=9223.79, stdev=73880.13
+    clat percentiles (nsec):
+     |  1.00th=[   564],  5.00th=[   564], 10.00th=[   572], 20.00th=[   572],
+     | 30.00th=[   588], 40.00th=[   612], 50.00th=[   852], 60.00th=[  1080],
+     | 70.00th=[  1096], 80.00th=[  1144], 90.00th=[  1208], 95.00th=[  1288],
+     | 99.00th=[  7328], 99.50th=[  9280], 99.90th=[ 16768], 99.95th=[ 38144],
+     | 99.99th=[164864]
+   bw (  KiB/s): min=  208, max=19688, per=100.00%, avg=14061.12, stdev=3052.28, samples=117
+   iops        : min=   52, max= 4922, avg=3515.26, stdev=763.07, samples=117
+  lat (nsec)   : 50=0.47%, 250=0.01%, 750=23.72%, 1000=13.27%
+  lat (usec)   : 2=51.46%, 4=8.79%, 10=1.91%, 20=0.26%, 50=0.08%
+  lat (usec)   : 100=0.02%, 250=0.02%, 500=0.01%, 1000=0.01%
+  lat (msec)   : 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=1.15%, sys=24.97%, ctx=214490, majf=0, minf=14
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=207416,207292,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=13.5MiB/s (14.2MB/s), 13.5MiB/s-13.5MiB/s (14.2MB/s-14.2MB/s), io=810MiB (850MB), run=60001-60001msec
+  WRITE: bw=13.5MiB/s (14.1MB/s), 13.5MiB/s-13.5MiB/s (14.1MB/s-14.1MB/s), io=810MiB (849MB), run=60001-60001msec
+
+Disk stats (read/write):
+  sda: ios=207023/141443, merge=0/15, ticks=45883/25225, in_queue=71179, util=63.48%
+
+=== Run 5/5: Fork-Test (Standard fork) ===
+stress-ng: info:  [143142] setting to a 60 second run per stressor
+stress-ng: info:  [143142] dispatching hogs: 4 fork
+stress-ng: metrc: [143142] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+stress-ng: metrc: [143142]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: metrc: [143142] fork              35135     60.00     28.92     30.51       585.58         591.26
+stress-ng: info:  [143142] successful run completed in 60.02s (1 min, 0.02 secs)
+
+--- Run 5 abgeschlossen ---
+
+Alle Tests abgeschlossen. Ergebnisse gespeichert in: benchmarks_debianfull_20250727_184127/results.txt

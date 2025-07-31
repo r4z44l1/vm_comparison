@@ -1,0 +1,4 @@
+cpu = 1
+ram = 2048
+para = none
+nested-paging = off
